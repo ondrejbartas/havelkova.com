@@ -5,6 +5,11 @@ document.querySelectorAll('.menu a').forEach(a =>
   a.addEventListener('click', () => { if (navtog) navtog.checked = false; })
 );
 
+const nav = document.querySelector('.nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+onScroll();
+addEventListener('scroll', onScroll, { passive: true });
+
 const shots = [...document.querySelectorAll('.shot')];
 const imgs = shots.map(s => s.getAttribute('href'));
 const lb = document.getElementById('lb');
